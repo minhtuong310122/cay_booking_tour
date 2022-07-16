@@ -1,0 +1,39 @@
+<p>Danh sach bai Tours:</p>
+
+<%= link_to "<button class='btn btn-outline-success button'>Tours New</button>".html_safe, new_admin_tour_path %>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Image</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Tour type</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Time in date</th>
+    <th>Limit member</th>
+    <th>Action</th>
+  </tr>
+  <% @tours.map do |tour| %>
+    <tr>
+      <td><%= tour.id %></td>
+      <td><%= tour.title %></td>
+      <td class="img-tour"><img src=<%= tour.image_url %>></td>
+      <td><%= tour.price %></td>
+      <td><%= tour.description %></td>
+      <td><%= tour.tour_type %></td>
+      <td><%= tour.start_date %></td>
+      <td><%= tour.end_date %></td>
+      <td><%= tour.time_in_day %></td>
+      <td><%= tour.limit_member %></td>
+      <td>
+        <%= link_to "<button class='btn btn-outline-info'>View</button>".html_safe, admin_tour_path(tour) %>
+        <%= link_to "<button class='btn btn-outline-info'>Edit</button>".html_safe, edit_admin_tour_path(tour) %>
+        <%= link_to "<button class='btn btn-outline-danger'>Delete</button>".html_safe, admin_tour_path(tour),
+         method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>

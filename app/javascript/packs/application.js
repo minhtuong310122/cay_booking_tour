@@ -6,6 +6,7 @@ import "bootstrap"
 import "../stylesheets/index.scss"
 
 require("jquery")
+require("packs/admin")
 
 
 Rails.start()
